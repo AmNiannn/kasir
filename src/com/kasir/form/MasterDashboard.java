@@ -360,7 +360,7 @@ private void createTransactionBarChart() {
         PanelGrafik.setLayout(PanelGrafikLayout);
         PanelGrafikLayout.setHorizontalGroup(
             PanelGrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         PanelGrafikLayout.setVerticalGroup(
             PanelGrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,6 +381,7 @@ private void createTransactionBarChart() {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelGrafik, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cardAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(48, 48, 48)
@@ -390,10 +391,8 @@ private void createTransactionBarChart() {
                                 .addGap(50, 50, 50)
                                 .addComponent(cardPengembalian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(PanelGrafik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(jLabel1)
+                                .addGap(0, 950, Short.MAX_VALUE)))))
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(

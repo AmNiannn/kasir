@@ -34,19 +34,25 @@ public class Menu extends javax.swing.JPanel {
         listMenu.addItem(new ModelMenu("", " ", ModelMenu.MenuType.TITLE));
         listMenu.addItem(new ModelMenu("", "Transaksi", ModelMenu.MenuType.TITLE));
         listMenu.addItem(new ModelMenu("peminjaman_white", "Kasir", ModelMenu.MenuType.MENU));
+        listMenu.addItem(new ModelMenu("pengembalian_white", "Pendapatan Harian", ModelMenu.MenuType.MENU));
+        listMenu.addItem(new ModelMenu("", " ", ModelMenu.MenuType.TITLE));
         listMenu.addItem(new ModelMenu("", "Laporan", ModelMenu.MenuType.TITLE));
         listMenu.addItem(new ModelMenu("peminjaman_white", "Keuangan Penjualan", ModelMenu.MenuType.MENU));
         listMenu.addItem(new ModelMenu("anggota_white", "Kinerja Kasir", ModelMenu.MenuType.MENU));
         listMenu.addItem(new ModelMenu("book_white", "Penjualan Produk", ModelMenu.MenuType.MENU));
         listMenu.addItem(new ModelMenu("", "", ModelMenu.MenuType.EMPTY));
+        
 
     } else if (levelUser != null && levelUser.equals("Kasir")) {
-        listMenu.addItem(new ModelMenu("dashboard_white", "Dashboard", ModelMenu.MenuType.MENU));
         listMenu.addItem(new ModelMenu("", "Transaksi", ModelMenu.MenuType.TITLE));
         listMenu.addItem(new ModelMenu("peminjaman_white", "Kasir", ModelMenu.MenuType.MENU));
+        listMenu.addItem(new ModelMenu("", "Laporan", ModelMenu.MenuType.TITLE));
+        listMenu.addItem(new ModelMenu("pengembalian_white", "Pendapatan Harian", ModelMenu.MenuType.MENU));
+        listMenu.addItem(new ModelMenu("", " ", ModelMenu.MenuType.TITLE));
         
 
     } else if (levelUser != null && levelUser.equals("Owner")) {
+        listMenu.addItem(new ModelMenu("dashboard_white", "Dashboard", ModelMenu.MenuType.MENU));
         listMenu.addItem(new ModelMenu("", "Laporan", ModelMenu.MenuType.TITLE));
         listMenu.addItem(new ModelMenu("peminjaman_white", "Penjualan", ModelMenu.MenuType.MENU));
         listMenu.addItem(new ModelMenu("anggota_white", "Kinerja Kasir", ModelMenu.MenuType.MENU));

@@ -2,16 +2,17 @@ package com.kasir.main;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.kasir.form.FormProfile;
-import com.kasir.form.LaporanAnggota;
-import com.kasir.form.LaporanBuku;
-import com.kasir.form.LaporanPeminjaman;
-import com.kasir.form.MasterAnggota;
-import com.kasir.form.MasterBuku;
+import com.kasir.form.LaporanKasir;
+import com.kasir.form.LaporanProduk;
+import com.kasir.form.LaporanKeuangan;
+import com.kasir.form.MasterMember;
+import com.kasir.form.MasterProduk;
 import com.kasir.form.MasterDashboard;
 import com.kasir.form.MasterKategori;
-import com.kasir.form.MasterPenerbit;
-import com.kasir.form.MasterPetugas;
-import com.kasir.form.TransaksiPeminjaman;
+import com.kasir.form.MasterBrand;
+import com.kasir.form.KeuanganHarian;
+import com.kasir.form.MasterKaryawan;
+import com.kasir.form.TransaksiPenjualan;
 import com.kasir.menu.EventMenuSelected;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
@@ -31,62 +32,73 @@ public class MenuUtama extends javax.swing.JFrame {
     private String levelUser;
     private Timer timer;
     
-   public MenuUtama(String userID, String namaUser, String levelUser) {
-    initComponents();
-    this.userID = userID;
-    this.levelUser = levelUser;
-    lbProfileName.setText(namaUser);
+    public MenuUtama(String userID, String namaUser, String levelUser) {
+        initComponents();
+        this.userID = userID;
+        this.levelUser = levelUser;
+        lbProfileName.setText(namaUser);
 
-    menu.getLevelUser(levelUser);
-    menu.addEventMenuSelected(new EventMenuSelected() {
-        @Override
-        public void selected(int index) {
-            if (levelUser != null && levelUser.equals("Admin")) {
-                if (index == 0) {
-                    setForm(new MasterDashboard());
-                } else if (index == 2) {
-                    setForm(new MasterAnggota());
-                } else if (index == 3) {
-                    setForm(new MasterKategori());
-                } else if (index == 4) {
-                    setForm(new MasterPenerbit());
-                } else if (index == 5) {
-                    setForm(new MasterBuku());
-                } else if (index == 6) {
-                    setForm(new MasterPetugas());
-                } else if (index == 9) {
-                    setForm(new TransaksiPeminjaman(userID));
-                }  else if (index == 11) {
-                    setForm(new LaporanPeminjaman());
-                } else if (index == 12) {
-                    setForm(new LaporanAnggota());
-                } else if (index == 13) {
-                    setForm(new LaporanBuku());
-                }
-            } else if (levelUser != null && levelUser.equals("Kasir")) {
-                if (index == 0) {
-                    setForm(new MasterDashboard());
-                } else if (index == 2) {
-                    setForm(new TransaksiPeminjaman(userID));
-                }
-            } else if (levelUser != null && levelUser.equals("Owner")) {
-                if (index == 0) {
-                    setForm(new MasterDashboard());
-                } else if (index == 1) {
-                    setForm(new LaporanPeminjaman());
-                } else if (index == 2) {
-                    setForm(new LaporanAnggota());
-                } else if (index == 3) {
-                    setForm(new LaporanBuku());
+        menu.getLevelUser(levelUser);
+        menu.addEventMenuSelected(new EventMenuSelected() {
+            @Override
+            public void selected(int index) {
+                if (levelUser != null && levelUser.equals("Admin")) {
+                    if (index == 0) {
+                        setForm(new MasterDashboard());
+                    } else if (index == 2) {
+                        setForm(new MasterMember());
+                    } else if (index == 3) {
+                        setForm(new MasterKategori());
+                    } else if (index == 4) {
+                        setForm(new MasterBrand());
+                    } else if (index == 5) {
+                        setForm(new MasterProduk());
+                    } else if (index == 6) {
+                        setForm(new MasterKaryawan());
+                    } else if (index == 9) {
+                        setForm(new TransaksiPenjualan(userID));
+                    } else if (index == 10) {
+                        setForm(new KeuanganHarian());
+                    } else if (index == 13) {
+                        setForm(new LaporanKeuangan());
+                    } else if (index == 14) {
+                        setForm(new LaporanKasir());
+                    } else if (index == 15) {
+                        setForm(new LaporanProduk());
+                    }
+                } else if (levelUser != null && levelUser.equals("Kasir")) {
+                    if (index == 1) {
+                        setForm(new TransaksiPenjualan(userID));
+                    } else if (index == 3) {
+                        setForm(new KeuanganHarian());
+                    }
+                } else if (levelUser != null && levelUser.equals("Owner")) {
+                    if (index == 0) {
+                        setForm(new MasterDashboard());
+                    } else if (index == 2) {
+                        setForm(new LaporanKeuangan());
+                    } else if (index == 3) {
+                        setForm(new LaporanKasir());
+                    } else if (index == 4) {
+                        setForm(new LaporanProduk());
+                    }
                 }
             }
-        }
-    });
+        });
 
-    setForm(new MasterDashboard());
-    setLayoutForm();
-    setDate();
-}
+        // Tentukan tampilan awal berdasarkan level user
+        if (levelUser != null && levelUser.equals("Admin")) {
+            setForm(new MasterDashboard());
+        } else if (levelUser != null && levelUser.equals("Kasir")) {
+            setForm(new TransaksiPenjualan(userID));
+        } else if (levelUser != null && levelUser.equals("Owner")) {
+            setForm(new MasterDashboard());
+        }
+
+        setLayoutForm();
+        setDate();
+    }
+
 
 
     

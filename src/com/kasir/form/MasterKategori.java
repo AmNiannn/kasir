@@ -575,12 +575,25 @@ public class MasterKategori extends javax.swing.JPanel {
     }
     
     private void setTabelModel() {
-        DefaultTableModel model = (DefaultTableModel) tblData.getModel();
-        model.addColumn("No");
-        model.addColumn("ID Kategori");
-        model.addColumn("Nama Kategori");
-        model.addColumn("Deskripsi Kategori");
-    }
+    // Buat model tabel kustom
+    DefaultTableModel model = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            // Semua sel tidak dapat diedit
+            return false;
+        }
+    };
+
+    // Tambahkan kolom ke model
+    model.addColumn("No");
+    model.addColumn("ID Kategori");
+    model.addColumn("Nama Kategori");
+    model.addColumn("Deskripsi Kategori");
+
+    // Set model ke tabel
+    tblData.setModel(model);
+}
+
 
     public void getData(int startIndex, int entriesPage, DefaultTableModel model) {
         model.setRowCount(0);
